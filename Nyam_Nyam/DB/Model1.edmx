@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище NyamNyam_FayModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище NyamNyam_FayModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
@@ -53,6 +53,7 @@
           <Property Name="CostInCents" Type="int" Nullable="false" />
           <Property Name="UnitId" Type="int" Nullable="false" />
           <Property Name="AvailableCount" Type="float" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="IngredientOfStage">
           <Key>
@@ -242,8 +243,7 @@
             <End Role="OrderedDish" EntitySet="OrderedDish" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="NyamNyam_FayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -304,6 +304,7 @@
           <Property Name="AvailableCount" Type="Double" Nullable="false" />
           <NavigationProperty Name="Unit" Relationship="Self.FK_Ingredient_Unit" FromRole="Ingredient" ToRole="Unit" />
           <NavigationProperty Name="IngredientOfStage" Relationship="Self.FK_IngredientOfStage_Ingredient" FromRole="Ingredient" ToRole="IngredientOfStage" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="IngredientOfStage">
           <Key>
@@ -552,6 +553,7 @@
           <EntitySetMapping Name="Ingredient">
             <EntityTypeMapping TypeName="NyamNyam_FayModel.Ingredient">
               <MappingFragment StoreEntitySet="Ingredient">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CostInCents" ColumnName="CostInCents" />

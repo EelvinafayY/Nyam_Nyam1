@@ -32,40 +32,59 @@
                   d:ItemsSource="{d:SampleData ItemCount=15}"
                   Grid.Row="1"
                   BorderThickness="0"
-                  Background="Transparent"
                      >
+                <ListView.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#fed7c1"/>
+                        <GradientStop Color="#d5c847" Offset="1"/>
+                        <GradientStop Color="#fdb249" Offset="0.5"/>
+                    </LinearGradientBrush>
+                </ListView.Background>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border BorderThickness="1"
-                            BorderBrush="#d5c847"
-                                Width="320">
+                            BorderBrush="Black"
+                                Width="320"
+                                Height="120">
+                            
                             <Grid Margin="10">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="120" />
-                                    <ColumnDefinition Width="75" />
+                                    <ColumnDefinition Width="150" />
+                                    <ColumnDefinition Width="100" />
                                     <ColumnDefinition Width="30" />
                                 </Grid.ColumnDefinitions>
+                                <Image Source="{Binding Image}"></Image>
+                                <Rectangle Fill="Black" Opacity="0.5"></Rectangle>
                                 <StackPanel Margin="0,0,10,0"
                                         Grid.Column="0"
                                              >
                                     <TextBlock Style="{StaticResource Content2}"
                                         Text="{Binding Name}"
                                            FontWeight="Bold"
-                                           FontSize="16" />
+                                           FontSize="16" 
+                                               TextWrapping="Wrap"
+                                               Foreground="WhiteSmoke"
+                                               Margin="5 20 0 0"/>
                                     <TextBlock Style="{StaticResource Content3}" 
+                                               Foreground="WhiteSmoke"
                                         Text="{Binding PriceInDollars, StringFormat='Price: ${0}'}"
-                                           FontSize="14" />
+                                           FontSize="14" 
+                                               Margin="5 0 0 0"/>
                                     <TextBlock FontSize="14">
-                                <Hyperlink Foreground="DarkRed"
+                                <Hyperlink 
+                                    Foreground="DarkRed"
                                            x:Name="HLDelete"
-                                           Click="HLDelete_Click">
-                                    Delete
+                                           Click="HLDelete_Click"
+                                           >
+                                   <TextBlock Text="Delete" Margin="5 0 0 0"
+                                              ></TextBlock>
                                 </Hyperlink>
                                     </TextBlock>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal"
                                         Grid.Column="1"
-                                        HorizontalAlignment="Center">
+                                        HorizontalAlignment="Center"
+                                          Margin="10 0 0 0"  >
                                     <TextBox x:Name="TBСount"
                                          Text="{Binding AvailableCount, UpdateSourceTrigger=PropertyChanged}"
                                          VerticalAlignment="Center"
@@ -79,10 +98,11 @@
                                          PreviewTextInput="TBСount_PreviewTextInput"
                                          TextChanged="TBСount_TextChanged" 
                                          IsEnabled="False"/>
-                                    <TextBlock Text="unit"
+                                    <TextBlock Text="{Binding Unit.ShortName}"
                                            VerticalAlignment="Center"
                                            Margin="0,0,10,0"
-                                           FontSize="14" />
+                                           FontSize="14" 
+                                               Width="30"/>
                                 </StackPanel>
 
                                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right"

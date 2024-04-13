@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\202122\Downloads\Nyam_Nyam_New-master (2)\Nyam_Nyam_New-master (1)\Nyam_Nyam_New-master\Nyam_Nyam\DB\Model1.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\202122\Documents\GitHub\Nyam_Nyam1\Nyam_Nyam\DB\Model1.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

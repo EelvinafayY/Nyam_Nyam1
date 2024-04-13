@@ -13,6 +13,9 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Background="#eed4fe">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="\Image\logo.jpg"></Image>
+            </StackPanel>
             <StackPanel Margin="10 10 10 0">
                 <TextBlock Style="{StaticResource Content1}"
                    Grid.Row="0" Grid.Column="0"
@@ -20,13 +23,16 @@
                    <Hyperlink Click="Hyperlink_Click_1">
                        <TextBlock Text="Dishes" Style="{StaticResource Content1}"></TextBlock>
                    </Hyperlink></TextBlock>
-
-                <TextBlock Style="{StaticResource Content1}"
-                   Grid.Row="1" Grid.Column="0"
-                   HorizontalAlignment="Left" VerticalAlignment="Center"> 
-                   <Hyperlink Click="Hyperlink_Click_2">
-                       <TextBlock Text="Inrgredients" Style="{StaticResource Content1}"></TextBlock>
-                   </Hyperlink></TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    
+                    <TextBlock Style="{StaticResource Content1}"
+   Grid.Row="1" Grid.Column="0"
+   HorizontalAlignment="Left" VerticalAlignment="Center"> 
+   <Hyperlink Click="Hyperlink_Click_2">
+       <TextBlock Text="Inrgredients" Style="{StaticResource Content1}"></TextBlock>
+   </Hyperlink></TextBlock>
+                </StackPanel>
+                
 
                 <TextBlock Style="{StaticResource Content1}"
                    Grid.Row="2" Grid.Column="0"
